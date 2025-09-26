@@ -1,9 +1,6 @@
 from collections import defaultdict
 num_map = defaultdict(list)
 
-num_map["Sub1"]=[]
-num_map["Sub2"]=[]
-
 intnums=[]
 
 n =int(input("Enter number of integers: "))
@@ -12,10 +9,11 @@ for i in range(n):
 
 
 for i in range(n):
-    if (intnums[i] % 10 == 0):
-        num_map["Sub1"].append(intnums[i])
-    elif (intnums[i] % 10 == 1):
-       num_map["Sub2"].append(intnums[i])
+    n=intnums[i] % 10
+    num_map[n].append(intnums[i])
 
 
-print(num_map.items())
+for i in range(10):
+    if num_map[i]!=[]:
+     a=num_map.get(i)
+     print("Reminder ",i,":",a)
