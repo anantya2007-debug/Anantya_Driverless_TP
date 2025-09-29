@@ -18,17 +18,20 @@ def get_coordinate():
 def sort_coord():
     coords = input_coordinates()
     cord = get_coordinate()
-    c=[]
-    for i in range(len(coords)):
-        d=((coords[i][0]-cord[0])**2+(coords[i][1]-cord[1])**2)**0.5
-        num_map[d].append(coords[i])
-        low, high = 0, len(c)
-        while low < high:
-            mid = (low + high) // 2
-            if num_map[mid] < d:
-                low = mid + 1
-            else:
-                high = mid
-        l=num_map[d]
-        l.insert(low, (d, coords[i]))
+    
+    dist_list = []  
+    
+    for coord in coords:
+        d = ((coord[0] - cord[0])**2 + (coord[1] - cord[1])**2)**0.5
+        num_map[d].append(coord)
+
+    dist_list=sorted(num_map.items())
+    
+    return dist_list
+
+a=sort_coord()
+print(a)
+
+
+
 
